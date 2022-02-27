@@ -30,4 +30,9 @@ public class WeatherForecastController : ControllerBase
         .ToArray();
     }
     
+    [HttpGet("{id}")]
+    public ActionResult<string> GetById(int id)
+    {
+        return Ok("Marcopolo Ramos");
+    }
 }
