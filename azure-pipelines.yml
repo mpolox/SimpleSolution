@@ -11,6 +11,7 @@ variables:
 
 steps:
 - task: DotNetCoreCLI@2
+  displayName: 'Solution Test'
   inputs:
     command: test
     projects: '**/*test/*.csproj'
