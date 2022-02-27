@@ -1,6 +1,4 @@
-# --------------
 # --- CREATE ---
-# --------------
 # Create Solution and projects
   mkdir <folder>
   mkdir <code>
@@ -19,9 +17,7 @@
 # Add reference for Project to Test Project
   dotnet add <projectName.test> reference <projectName>
 
-# -----------------
 # ---BUILD & RUN---
-# -----------------
   # Go to solution path <E:\Repos\AzureSln>
   dotnet build
   
@@ -36,3 +32,4 @@
 
 
 
+# Tutorial from: https://www.youtube.com/watch?v=SOtC1VLZKm4&list=WL&index=9&ab_channel=LesJackson
