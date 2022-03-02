@@ -16,7 +16,8 @@ steps:
     azureSubscription: 'Azure subscription Basic(d0559394-49b7-41ae-97e9-6c61415646f7)'
     scriptType: 'pscore'
     scriptLocation: 'inlineScript'
-    inlineScript: |
+    inlineScript: 
+      az upgrade
       az --version
       az account show
 - task: DotNetCoreCLI@2
