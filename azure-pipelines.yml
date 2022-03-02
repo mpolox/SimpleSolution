@@ -30,5 +30,14 @@ steps:
     zipAfterPublish: true
 
 - task: PublishBuildArtifacts@1
-  displayName: 'Publish artifacts'  
+  displayName: 'Publish artifacts'
+
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'Azure subscription Basic(d0559394-49b7-41ae-97e9-6c61415646f7)'
+    scriptType: 'ps'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      az --version
+      az account show
          
