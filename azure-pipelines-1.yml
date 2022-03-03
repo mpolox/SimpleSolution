@@ -1,19 +1,40 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
+# ASP.NET Core
 
+# Marcopolo Ramos
 trigger:
 - master
 
 pool:
   vmImage: ubuntu-latest
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+variables:
+  buildConfiguration: 'Release'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+steps:
+- task: DotNetCoreCLI@2
+  displayName: 'Solution Test'
+  inputs:
+    command: test
+    projects: '**/*test/*.csproj'
+    arguments: '--configuration $(buildConfiguration)'
+
+- script: dotnet build --configuration $(buildConfiguration)  
+  displayName: 'dotnet build $(buildConfiguration)'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Deploy API Code'
+  inputs:
+    command: publish
+    publishWebProjects: false
+    projects: 'code/SimpleAPI/SimpleAPI.csproj'
+    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+    zipAfterPublish: true
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish artifacts'
+
+
+# DEPLOY TO :
+# RSG: EU2RSGSISDEV01
+# ASP: EU2ASPSISDEV01
+# API: EU2APISISDEV01
