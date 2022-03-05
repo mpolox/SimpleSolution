@@ -33,9 +33,11 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish artifacts'
 
-#####################
-# DEPLOY TO :
-# RSG: EU2RSGSISDEV01
-# ASP: EU2ASPSISDEV01
-# API: EU2APISISDEV01
-#####################
+#######################
+# DEPLOY TO :         #
+# RSG: EU2RSGSISDEV01 #
+# ASP: EU2ASPSISDEV01 #
+# API: EU2APISISDEV01 #
+# SRV: eu2srvsisdev01 #
+# SQL: EU2SQLSISDEV01 #
+#######################
