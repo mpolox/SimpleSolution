@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using SimpleAPI.Data;
+using SimpleAPI.Data.interfaces;
 using SimpleAPI.Dtos;
 
 namespace SimpleAPI.Controllers;
@@ -7,11 +9,24 @@ namespace SimpleAPI.Controllers;
 [Route("api/operation")]
 public class OperationController : ControllerBase{
 
-  ResponseDto myResponse = new ResponseDto();
+  private ResponseDto _response = new ResponseDto();
+  private readonly IOperationRepo _repo;
+
+  public OperationController(IOperationRepo repo)
+  {
+    _repo = repo;    
+  }
 
   [HttpGet("{id}")]
   public ResponseDto GetById(int id) {
-    myResponse.Data = "Marcopolo" + id;
-    return myResponse;
-  }  
+    _response.Data = _repo.getById(id);
+    return _response;
+  }
+
+  [HttpGet]
+  public ResponseDto GetAll() {
+    _response.Data = _repo.getAll();
+    return _response;
+  }
+
 }
