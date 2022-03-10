@@ -1,6 +1,6 @@
 namespace SimpleAPI.Dtos;
 
-public class ResponseDto{
+public class OutputResponseDto{
   public bool IsSuccess { get; set; } = true;
   public string ReponseMessage { get; set; } ="";
   public object? Data { get; set; } 

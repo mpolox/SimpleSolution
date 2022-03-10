@@ -8,5 +8,6 @@ public interface IOperationRepo
   Operation getById(int id);
   Operation RunbyId(int id);
   Operation DeleteById(int id);
+  Operation CreateOperation(Operation op);
   
 }

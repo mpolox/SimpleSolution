@@ -19,6 +19,11 @@ public class MockOperationRepo : IOperationRepo
     Details = "Details"
   };
 
+  public Operation CreateOperation(Operation op)
+  {
+    return op;    
+  }
+
   public Operation DeleteById(int id)
   {
     return myOp;

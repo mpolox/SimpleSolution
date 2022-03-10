@@ -1,7 +1,8 @@
+using ApiController.Dtos;
 using Microsoft.AspNetCore.Mvc;
-using SimpleAPI.Data;
 using SimpleAPI.Data.interfaces;
 using SimpleAPI.Dtos;
+using SimpleAPI.Models;
 
 namespace SimpleAPI.Controllers;
 
@@ -9,7 +10,7 @@ namespace SimpleAPI.Controllers;
 [Route("api/operation")]
 public class OperationController : ControllerBase{
 
-  private ResponseDto _response = new ResponseDto();
+  private OutputResponseDto _response = new OutputResponseDto();
   private readonly IOperationRepo _repo;
 
   public OperationController(IOperationRepo repo)
@@ -17,15 +18,26 @@ public class OperationController : ControllerBase{
     _repo = repo;    
   }
 
-  [HttpGet("{id}")]
-  public ResponseDto GetById(int id) {
+  [HttpGet("GetById/{id}")]
+  public OutputResponseDto GetById(int id) {
     _response.Data = _repo.getById(id);
     return _response;
   }
 
-  [HttpGet]
-  public ResponseDto GetAll() {
+  [HttpGet("GetAll/")]
+  public OutputResponseDto GetAll() {
     _response.Data = _repo.getAll();
+    return _response;
+  }
+
+  [HttpPost("AddOperation")]
+  public OutputResponseDto CreateOperation(InputOperationDto op) {
+    Operation myOp = new Operation();
+    myOp.Description = op.Data;
+    myOp.Name = op.Name;
+    myOp.Id = op.Id;
+    _response.Data = _repo.CreateOperation(myOp);
+    
     return _response;
   }
 
