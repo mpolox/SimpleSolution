@@ -6,6 +6,8 @@ using SimpleAPI.Models;
 
 namespace SimpleAPI.Controllers;
 
+//Controller
+
 [ApiController]
 [Route("api/operation")]
 public class OperationController : ControllerBase{
