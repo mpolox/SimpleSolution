@@ -41,4 +41,12 @@ public class OperationController : ControllerBase{
     return _response;
   }
 
+    [HttpGet("GetCalificaciones/")]
+    public OutputResponseDto GetCalificaciones()
+    {
+        _response.Data = _repo.getMines();
+        return _response;
+    }
+
+
 }

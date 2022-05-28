@@ -9,5 +9,6 @@ public interface IOperationRepo
   Operation RunbyId(int id);
   Operation DeleteById(int id);
   Operation CreateOperation(Operation op);
+  IEnumerable<Calificaciones> getMines();
   
 }
