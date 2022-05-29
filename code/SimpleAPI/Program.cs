@@ -14,7 +14,7 @@ builder.Services.AddCors(options =>
                       builder =>
                       {
                           builder
-                          .WithOrigins("http://localhost:3000", "https://localhost", "https://agreeable-forest-022536b0f.1.azurestaticapps.net/");
+                          .WithOrigins("http://localhost:3000", "https://localhost", "https://agreeable-forest-022536b0f.1.azurestaticapps.net", "https://eu2apisisdev01.azurewebsites.net/api/operation/GetResumen");
                           //.AllowAnyOrigin();
                           //.AllowAnyMethod()
                           //.AllowAnyHeader()
