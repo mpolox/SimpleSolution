@@ -47,8 +47,8 @@ public class MockOperationRepo : IOperationRepo
     {
         Parcial parcial = new Parcial
         {
-            Ausencias = rand.Next(5),
-            Calificacion = rand.Next(101),
+            Ausencias = rand.Next(3),
+            Calificacion = 30 + rand.Next(71),
             Descripcion = "Descripcion del parcial",
             Id = rand.Next(1000),
             Nombre = "Nombre del parcial #" + rand.Next(1000),
@@ -67,7 +67,7 @@ public class MockOperationRepo : IOperationRepo
         return parciales;    
     }
 
-    private Materia CreateMateria(string name, string shortName, string teacher)
+    private Materia CreateMateria(int id, string name, string shortName, string teacher)
     {
         
         Materia materia = new Materia();
@@ -84,13 +84,13 @@ public class MockOperationRepo : IOperationRepo
     private List<Materia> CreateMaterias()
     {
         List<Materia> materias = new List<Materia>();
-        materias.Add(CreateMateria("Matematicas I", "Mate I", "Pancho Lopez"));
-        materias.Add(CreateMateria("Taller de Lectura y Redaccion I", "TLR I", "Ramiro Ramirez"));
-        materias.Add(CreateMateria("Fisica I", "Fis I", "Luisa Lozano"));
-        materias.Add(CreateMateria("Apreciacion del Arte", "Artes", "Flor Flores"));
-        materias.Add(CreateMateria("Historia", "His", "Jesus Jimenez"));
-        materias.Add(CreateMateria("Deportes", "Dep", "Hugo Hernandez"));
-        materias.Add(CreateMateria("Geografia", "Geo", "Gerardo Gomez"));
+        materias.Add(CreateMateria(1,"Matematicas I", "Mate I", "Pancho Lopez"));
+        materias.Add(CreateMateria(2,"Taller de Lectura y Redaccion I", "TLR I", "Ramiro Ramirez"));
+        materias.Add(CreateMateria(3,"Fisica I", "Fis I", "Luisa Lozano"));
+        materias.Add(CreateMateria(4,"Apreciacion del Arte", "Artes", "Flor Flores"));
+        materias.Add(CreateMateria(5,"Historia", "His", "Jesus Jimenez"));
+        materias.Add(CreateMateria(6,"Deportes", "Dep", "Hugo Hernandez"));
+        materias.Add(CreateMateria(7,"Geografia", "Geo", "Gerardo Gomez"));
         return materias;
     }
 
