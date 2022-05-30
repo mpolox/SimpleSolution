@@ -67,14 +67,14 @@ public class MockOperationRepo : IOperationRepo
         return parciales;    
     }
 
-    private Materia CreateMateria(string name, string teacher)
+    private Materia CreateMateria(string name, string shortName, string teacher)
     {
         
         Materia materia = new Materia();
         materia.Id = rand.Next(101);
         materia.Nombre = name;
         materia.NombreMaestro = teacher;
-        materia.NombreCorto = name.Substring(0, 3);
+        materia.NombreCorto = shortName;
         materia.Parciales = CreateParciales();
         materia.Creditos = 5 * rand.Next(1,3);
         return materia;
@@ -84,13 +84,13 @@ public class MockOperationRepo : IOperationRepo
     private List<Materia> CreateMaterias()
     {
         List<Materia> materias = new List<Materia>();
-        materias.Add(CreateMateria("Matematicas I", "Pancho Lopez"));
-        materias.Add(CreateMateria("Español", "Ramiro Ramirez"));
-        materias.Add(CreateMateria("Fisica I", "Luisa Lozano"));
-        materias.Add(CreateMateria("Artes", "Flor Flores"));
-        materias.Add(CreateMateria("Historia", "Jesus Jimenez"));
-        materias.Add(CreateMateria("Deportes", "Hugo Hernandez"));
-        materias.Add(CreateMateria("Geografia", "Gerardo Gomez"));
+        materias.Add(CreateMateria("Matematicas I", "Mate I", "Pancho Lopez"));
+        materias.Add(CreateMateria("Taller de Lectura y Redaccion I", "TLR I", "Ramiro Ramirez"));
+        materias.Add(CreateMateria("Fisica I", "Fis I", "Luisa Lozano"));
+        materias.Add(CreateMateria("Apreciacion del Arte", "Artes", "Flor Flores"));
+        materias.Add(CreateMateria("Historia", "His", "Jesus Jimenez"));
+        materias.Add(CreateMateria("Deportes", "Dep", "Hugo Hernandez"));
+        materias.Add(CreateMateria("Geografia", "Geo", "Gerardo Gomez"));
         return materias;
     }
 
