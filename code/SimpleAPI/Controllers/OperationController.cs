@@ -1,4 +1,5 @@
 using ApiController.Dtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SimpleAPI.Data.interfaces;
 using SimpleAPI.Dtos;
@@ -59,6 +60,33 @@ public class OperationController : ControllerBase
     {
         _response.Data = _repo.GetResumenAlumno();
         return _response;
+    }
+
+
+    [HttpGet("TestAdmin/")]
+    [Authorize]
+
+    public IActionResult TestAdmin()
+    {
+        return Ok("Test Admin");
+    }
+
+    [HttpGet("TestPublic/")]
+    public IActionResult TestPublic()
+    {
+        return Ok("Test Public");
+    }
+
+    [HttpGet("TestTeacher/")]
+    public IActionResult TestTeacher()
+    {
+        return Ok("Test Teacher");
+    }
+
+    [HttpGet("TestStudent/")]
+    public IActionResult TestStudent()
+    {
+        return Ok("Test Student");
     }
 
 
