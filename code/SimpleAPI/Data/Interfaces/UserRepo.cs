@@ -8,18 +8,18 @@ namespace SimpleAPI.Data.Interfaces
         {
             new User()
             {
-                UserName = "mpolox",
+                UserName = "polo",
                 Email = "mpolox@gmail.com",
-                Password = "12345",
+                Password = "polo",
                 FirstName = "Marcopolo",
                 ParentName = "Ramos",
                 Role = "Admin"
             },
             new User()
             {
-                UserName = "alex",
-                Email = "alex@gmail.com",
-                Password = "12345",
+                UserName = "ale",
+                Email = "ale@gmail.com",
+                Password = "ale",
                 FirstName = "Alexandra",
                 ParentName = "Galvan",
                 Role = "Teacher"
@@ -28,19 +28,19 @@ namespace SimpleAPI.Data.Interfaces
             {
                 UserName = "emy",
                 Email = "emy@gmail.com",
-                Password = "12345",
+                Password = "emy",
                 FirstName = "Emilia",
                 ParentName = "Ramos",
                 Role = "Student"
             },
             new User()
             {
-                UserName = "string",
-                Email = "mpolox@gmail.com",
-                Password = "string",
-                FirstName = "MarcopoloStr",
-                ParentName = "Ramos",
-                Role = "Admin"
+                UserName = "polin",
+                Email = "polin@gmail.com",
+                Password = "polin",
+                FirstName = "Marcopolo",
+                ParentName = "Ramos Galvan",
+                Role = "Student"
             }
         };
         
