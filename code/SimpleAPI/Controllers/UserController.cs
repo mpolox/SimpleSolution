@@ -33,11 +33,19 @@ namespace SimpleAPI.Controllers
             if (user == null) return NotFound("User Not Found");
 
             var token = new AuthenticationManager().getToken(user, _config);
-            
-            user.Password = String.Empty;
+
+            User myUser = new User()
+            {
+                UserName = user.UserName,
+                Email = user.Email,
+                FirstName = user.FirstName,
+                ParentName = user.ParentName,
+                Role = user.Role,
+                Password = String.Empty                
+            };
             LoginResponse response = new()
             {
-                User = user,
+                User = myUser,
                 Token = token
             };
             return Ok(response);
