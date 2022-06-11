@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using SimpleAPI.Authentication;
 using SimpleAPI.Data.Interfaces;
+using SimpleAPI.Dtos;
 using SimpleAPI.Models;
 using System.Security.Claims;
 
@@ -24,16 +25,24 @@ namespace SimpleAPI.Controllers
 
         [HttpPost("Login")]
         [AllowAnonymous]
-        public async Task<IActionResult> Post([FromBody] UserLogin userLogin)
+        public IActionResult Login([FromBody] UserLogin userLogin)
         {
             if (userLogin == null) return BadRequest("User login missing");
 
             User user = _repo.UserLogin(userLogin);
             if (user == null) return NotFound("User Not Found");
 
-            var token = new AuthenticationManager().getToken(user, _config);            
-            return Ok(token);
+            var token = new AuthenticationManager().getToken(user, _config);
+            
+            user.Password = String.Empty;
+            LoginResponse response = new()
+            {
+                User = user,
+                Token = token
+            };
+            return Ok(response);
         }
+
 
         [HttpGet("GetByUsername/{username}")]
         public IActionResult GetByUsername(string username)
